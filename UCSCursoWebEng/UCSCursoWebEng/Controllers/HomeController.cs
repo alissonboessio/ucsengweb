@@ -3,47 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using UCSCursoWebEng.Models;
-using UCSCursoWebEng.Repositories;
+using UCSCursoWebEng.Dados.ADO;
+using UCSCursoWebEng.Dominio;
 
 namespace UCSCursoWebEng.Controllers
 {
     public class HomeController : Controller
     {
 
-        private PessoaModel CriarPessoa(int i)
-        {
-            return
-                new PessoaModel(
-                    Guid.NewGuid().ToString(),
-                    $"Nome da pessoa {i}",
-                    $"Sobrenome da pessoa {i}"
-                );
-        }
-
-        private List<PessoaModel> CriarLista()
-        {
-            var r = new List<PessoaModel>();
-
-            for (int i = 0; i < 15; i++)
-            {
-                r.Add(CriarPessoa(i));
-            }
-
-            return r;
-        }
-
-
         public ActionResult Index()
         {
 
-            List<PessoaModel> listaDePessoas = new List<PessoaModel>();
+            List<Pessoa> listaDePessoas = new List<Pessoa>();
 
             PessoaADO pessoaADO = new PessoaADO();
 
             listaDePessoas = pessoaADO.GetAll();
-
-            //var listaDePessoas = CriarLista();
 
             
             return View(listaDePessoas);
@@ -53,7 +28,7 @@ namespace UCSCursoWebEng.Controllers
         //entao, passamos o id por url parameter
         public ActionResult Detalhe(string id)
         {
-            PessoaModel pessoa;
+            Pessoa pessoa;
 
             if (!String.IsNullOrEmpty(id))
             {
@@ -63,14 +38,14 @@ namespace UCSCursoWebEng.Controllers
             }
             else
             {
-                pessoa = new PessoaModel();
+                pessoa = new Pessoa();
             }
 
             return View(pessoa);
         }
 
         [HttpPost]
-        public ActionResult Detalhe(PessoaModel pessoa)
+        public ActionResult Detalhe(Pessoa pessoa)
         {
             PessoaADO pessoaADO = new PessoaADO();
 

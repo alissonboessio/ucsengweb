@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
-using UCSCursoWebEng.Models;
+using UCSCursoWebEng.Dominio;
 
-namespace UCSCursoWebEng.Repositories
+namespace UCSCursoWebEng.Dados.ADO
 {
     public class PessoaADO
     {
@@ -18,21 +16,21 @@ namespace UCSCursoWebEng.Repositories
         const string InserirSql = "INSERT INTO PESSOAS (ID, NOME, SOBRENOME) VALUES (@id, @nome, @sobrenome);";
         const string AtualizarSql = "UPDATE PESSOAS SET ID = @id, NOME = @nome, SOBRENOME = @sobrenome WHERE ID = @id;";
 
-        public List<PessoaModel> GetAll()
+        public List<Pessoa> GetAll()
         {
-            List<PessoaModel> pessoas = new List<PessoaModel>();
+            List<Pessoa> pessoas = new List<Pessoa>();
 
-            using(SqlConnection conn = new SqlConnection(sqlConn))
+            using (SqlConnection conn = new SqlConnection(sqlConn))
             {
                 SqlCommand cmd = new SqlCommand(SelectAll, conn);
-            
+
                 conn.Open();
 
                 SqlDataReader sqlR = cmd.ExecuteReader();
 
                 while (sqlR.Read())
-                {                
-                    PessoaModel p = new PessoaModel(
+                {
+                    Pessoa p = new Pessoa(
                         sqlR["ID"].ToString(),
                         sqlR["NOME"].ToString(),
                         sqlR["SOBRENOME"].ToString()
@@ -46,24 +44,24 @@ namespace UCSCursoWebEng.Repositories
 
             return pessoas;
         }
-        public PessoaModel GetById(string id)
+        public Pessoa GetById(string id)
         {
 
             if (string.IsNullOrEmpty(id)) return null;
 
-            using(SqlConnection conn = new SqlConnection(sqlConn))
+            using (SqlConnection conn = new SqlConnection(sqlConn))
             {
                 SqlCommand cmd = new SqlCommand(SelectById, conn);
 
                 cmd.Parameters.AddWithValue("id", id);
 
                 conn.Open();
-                
+
                 SqlDataReader sqlR = cmd.ExecuteReader();
 
                 while (sqlR.Read())
-                {                
-                    return new PessoaModel(
+                {
+                    return new Pessoa(
                         sqlR["ID"].ToString(),
                         sqlR["NOME"].ToString(),
                         sqlR["SOBRENOME"].ToString()
@@ -91,7 +89,7 @@ namespace UCSCursoWebEng.Repositories
                 return cmd.ExecuteNonQuery() == 1;
             }
         }
-        public bool Inserir(PessoaModel p)
+        public bool Inserir(Pessoa p)
         {
 
             using (SqlConnection conn = new SqlConnection(sqlConn))
@@ -108,7 +106,7 @@ namespace UCSCursoWebEng.Repositories
             }
         }
 
-        public bool Atualizar(PessoaModel p)
+        public bool Atualizar(Pessoa p)
         {
 
             using (SqlConnection conn = new SqlConnection(sqlConn))

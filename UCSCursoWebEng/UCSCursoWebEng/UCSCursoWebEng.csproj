@@ -124,9 +124,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\PessoaModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\PessoaADO.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-grid.css" />
@@ -183,7 +181,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Pessoa\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
@@ -211,6 +209,16 @@
     <Content Include="Scripts\bootstrap.bundle.js.map" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UCSCursoWebEng.Dados.ADO\UCSCursoWebEng.Dados.ADO.csproj">
+      <Project>{8511cd72-3aed-4e2e-a63f-0febc7574e06}</Project>
+      <Name>UCSCursoWebEng.Dados.ADO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UCSCursoWebEng.Dominio.ADO\UCSCursoWebEng.Dominio.csproj">
+      <Project>{ffa0e0dc-c8b7-423f-b2a1-28d355bab0aa}</Project>
+      <Name>UCSCursoWebEng.Dominio</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

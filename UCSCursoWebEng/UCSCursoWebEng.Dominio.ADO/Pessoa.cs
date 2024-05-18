@@ -1,28 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace UCSCursoWebEng.Models
+namespace UCSCursoWebEng.Dominio
 {
-    public class PessoaModel
+    public class Pessoa
     {
-
         public string Id { get; set; }
         public string Nome { get; set; }
         public String Sobrenome { get; set; }
 
-        public PessoaModel(string id, string nome, string sobrenome)
+        public Pessoa(string id, string nome, string sobrenome)
         {
             Id = id;
             Nome = nome;
             Sobrenome = sobrenome;
         }
 
-        public PessoaModel()
+        public Pessoa()
         {
-            
-        }
 
+        }
     }
 }

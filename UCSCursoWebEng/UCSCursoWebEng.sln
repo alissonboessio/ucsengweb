@@ -5,6 +5,16 @@ VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UCSCursoWebEng", "UCSCursoWebEng\UCSCursoWebEng.csproj", "{8771CB9D-BA57-4F92-856B-A2DA118E7731}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CamadaDados", "CamadaDados", "{F1B5F695-9E94-4A0B-864E-86C1048F5354}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CamadaApresentacao", "CamadaApresentacao", "{52823E79-AC87-42C2-9CE9-FB74010096F8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CamadaDominio", "CamadaDominio", "{AF69AAB4-538A-4CD1-8D47-F60F0D262D15}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UCSCursoWebEng.Dados.ADO", "UCSCursoWebEng.Dados.ADO\UCSCursoWebEng.Dados.ADO.csproj", "{8511CD72-3AED-4E2E-A63F-0FEBC7574E06}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UCSCursoWebEng.Dominio", "UCSCursoWebEng.Dominio.ADO\UCSCursoWebEng.Dominio.csproj", "{FFA0E0DC-C8B7-423F-B2A1-28D355BAB0AA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,9 +25,22 @@ Global
 		{8771CB9D-BA57-4F92-856B-A2DA118E7731}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8771CB9D-BA57-4F92-856B-A2DA118E7731}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8771CB9D-BA57-4F92-856B-A2DA118E7731}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8511CD72-3AED-4E2E-A63F-0FEBC7574E06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8511CD72-3AED-4E2E-A63F-0FEBC7574E06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8511CD72-3AED-4E2E-A63F-0FEBC7574E06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8511CD72-3AED-4E2E-A63F-0FEBC7574E06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFA0E0DC-C8B7-423F-B2A1-28D355BAB0AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFA0E0DC-C8B7-423F-B2A1-28D355BAB0AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFA0E0DC-C8B7-423F-B2A1-28D355BAB0AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFA0E0DC-C8B7-423F-B2A1-28D355BAB0AA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8771CB9D-BA57-4F92-856B-A2DA118E7731} = {52823E79-AC87-42C2-9CE9-FB74010096F8}
+		{8511CD72-3AED-4E2E-A63F-0FEBC7574E06} = {F1B5F695-9E94-4A0B-864E-86C1048F5354}
+		{FFA0E0DC-C8B7-423F-B2A1-28D355BAB0AA} = {AF69AAB4-538A-4CD1-8D47-F60F0D262D15}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CAA87672-7CD9-4619-90B2-50352810C103}
