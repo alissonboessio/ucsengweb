@@ -1,0 +1,42 @@
+﻿@model UCSCursoWebEng.Models.PessoaModel
+
+<h2>Detalhe da Pessoa</h2>
+
+
+
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        <label>Id</label>
+        @Html.HiddenFor(x => x.Id)
+    </div>
+    <div class="form-group">
+        <label>Nome</label>
+        @Html.TextBoxFor(x => x.Nome, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Sobrenome</label>
+        @Html.TextBoxFor(x => x.Sobrenome, new { @class = "form-control" })
+    </div>
+
+    <br />
+
+    <button type="submit" class="btn btn-info">Salvar</button>
+    if (!String.IsNullOrEmpty(Model.Id))
+    {
+        <button type="button" class="btn btn-danger" onclick="deletar('@Model.Id')">Deletar</button>
+
+    }
+
+}
+
+
+
+
+
+
+<script>
+    function deletar(id) {
+        window.location.replace('/Home/Deletar?id=' + id)
+    }
+</script>
